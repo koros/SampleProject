@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:supportv4="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/more_options"
+        android:icon="@drawable/ic_more_round2"
+        android:orderInCategory="102"
+        android:title="@string/more"
+        supportv4:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/action_refresh"
+                android:orderInCategory="200"
+                android:title="@string/action_refresh"
+                supportv4:showAsAction="never"/>
+        </menu>
+    </item>
+
+</menu>
