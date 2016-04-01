@@ -22,9 +22,11 @@ public class Action implements Serializable{
 	
 	private String type;
 	
-	private Long associatedMessageId;
+	private Integer associatedMessageId;
 	
-	private Long associatedResponseMessageId;
+	private Integer associatedResponseMessageId;
+	
+	private Integer actionId;
 	
 	public Integer getId() {
 		return id;
@@ -50,19 +52,27 @@ public class Action implements Serializable{
 		this.type = type;
 	}
 
-	public Long getAssociatedMessageId() {
+	public Integer getAssociatedMessageId() {
 		return associatedMessageId;
 	}
 
-	public void setAssociatedMessageId(Long associatedMessageId) {
+	public void setAssociatedMessageId(Integer associatedMessageId) {
 		this.associatedMessageId = associatedMessageId;
 	}
 
-	public Long getAssociatedResponseMessageId() {
+	public Integer getAssociatedResponseMessageId() {
 		return associatedResponseMessageId;
 	}
 
-	public void setAssociatedResponseMessageId(Long associatedResponseMessageId) {
+	public void setAssociatedResponseMessageId(Integer associatedResponseMessageId) {
 		this.associatedResponseMessageId = associatedResponseMessageId;
+	}
+
+	public Integer getActionId() {
+		return actionId;
+	}
+
+	public void setActionId(Integer actionId) {
+		this.actionId = actionId;
 	}
 }

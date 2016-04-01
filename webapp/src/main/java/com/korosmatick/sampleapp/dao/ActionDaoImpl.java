@@ -46,8 +46,10 @@ public class ActionDaoImpl implements ActionDao{
 	@Override
 	public void add(Action action) {
 		logger.debug("adding : " + action.getName());
-		Session session = sessionFactory.getCurrentSession();
-		session.save(action);
+		if (findActionByActionId(action.getActionId()) == null) {
+			Session session = sessionFactory.getCurrentSession();
+			session.save(action);
+		}
 	}
 
 	@Override
@@ -78,12 +80,25 @@ public class ActionDaoImpl implements ActionDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Action> findAllActionsForMessageId(Long messageId) {
+	public List<Action> findAllActionsForMessageId(Integer messageId) {
 		logger.debug("findAllActionsForMessageId() called");
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(Action.class);
 		criteria.add(Restrictions.eq("associatedMessageId", messageId));
 		criteria.addOrder(Order.asc("id"));
 		return criteria.list();
+	}
+
+	@Override
+	public Action findActionByActionId(Integer actionId) {
+		logger.debug("Find Action by actionId : " + actionId );
+		if (actionId != null) {
+			Session session = sessionFactory.getCurrentSession();
+			Criteria criteria = session.createCriteria(Action.class);
+			criteria.add(Restrictions.eq("actionId", actionId));
+			criteria.addOrder(Order.asc("id"));
+			return criteria.list().isEmpty() ? null : (Action) criteria.list().get(0);
+		}
+		return null;
 	}
 }

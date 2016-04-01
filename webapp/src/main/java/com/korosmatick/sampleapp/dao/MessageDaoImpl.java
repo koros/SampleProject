@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +35,10 @@ public class MessageDaoImpl implements MessageDao{
 	@Override
 	public void add(Message message) {
 		logger.debug("adding : " + message.getText());
-		Session session = sessionFactory.getCurrentSession();
-		session.save(message);
+		if (findByMessageId(message.getMessageId()) == null) {
+			Session session = sessionFactory.getCurrentSession();
+			session.save(message);
+		}
 	}
 
 	@Override
@@ -62,6 +65,19 @@ public class MessageDaoImpl implements MessageDao{
 		Criteria criteria = session.createCriteria(Message.class);
 		criteria.addOrder(Order.asc("id"));
 		return criteria.list();
+	}
+
+	@Override
+	public Message findByMessageId(Integer messageId) {
+		logger.debug("Find Message by messageId : " + messageId );
+		if (messageId != null) {
+			Session session = sessionFactory.getCurrentSession();
+			Criteria criteria = session.createCriteria(Message.class);
+			criteria.add(Restrictions.eq("messageId", messageId));
+			criteria.addOrder(Order.asc("id"));
+			return criteria.list().isEmpty() ? null : (Message) criteria.list().get(0);
+		}
+		return null;
 	}
 	
 }

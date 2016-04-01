@@ -29,6 +29,8 @@ public class Message implements Serializable{
 	
 	private String sender;
 	
+	private Integer messageId;
+	
 	public Long getId() {
 		return id;
 	}
@@ -75,5 +77,13 @@ public class Message implements Serializable{
 
 	public void setSender(String sender) {
 		this.sender = sender;
+	}
+
+	public Integer getMessageId() {
+		return messageId;
+	}
+
+	public void setMessageId(Integer messageId) {
+		this.messageId = messageId;
 	}
 }

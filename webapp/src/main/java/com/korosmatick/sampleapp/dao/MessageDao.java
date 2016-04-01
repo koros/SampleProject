@@ -6,6 +6,7 @@ import com.korosmatick.sampleapp.model.db.Message;
 
 public interface MessageDao {
 	Message findById(Long id);
+	Message findByMessageId(Integer messageId);
 	void add(Message message);
 	void delete(Message message);
 	void deleteById(Long id);
