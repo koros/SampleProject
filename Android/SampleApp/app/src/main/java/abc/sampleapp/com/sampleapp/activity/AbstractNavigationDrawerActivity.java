@@ -179,8 +179,8 @@ public class AbstractNavigationDrawerActivity extends AbstractBaseActivity {
 	        startActivity(intent);
 			break;
 			
-		case Constants.FAVORITES:
-			intent = new Intent(this, HomeActivity.class);
+		case Constants.MESSAGES:
+			intent = new Intent(this, MessagesActivity.class);
 			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 	        startActivity(intent);

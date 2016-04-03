@@ -6,7 +6,7 @@ import abc.sampleapp.com.sampleapp.R;
 public class Constants {
 	
 	public static final int HOME = 0;
-	public static final int FAVORITES = 1;
+	public static final int MESSAGES = 1;
 	public static final int SETTINGS = 2;
 	
 	public static final String PREFS_NAME = "PrefsFile";

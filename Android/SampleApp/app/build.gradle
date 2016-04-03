@@ -18,6 +18,12 @@ android {
     }
     productFlavors {
     }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/DEPENDENCIES'
+    }
 }
 
 dependencies {

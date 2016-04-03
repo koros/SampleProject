@@ -34,4 +34,6 @@ Informally, the capacity of a classification model is related to how complicated
 
      </string>
 
+    <string name="done">DONE</string>
+
 </resources>
