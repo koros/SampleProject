@@ -22,7 +22,7 @@ public class Bootstrap {
 	@Autowired
 	private MessageDao messageDao;
 	
-	@PostConstruct 
+	@PostConstruct
 	public void initDb(){
 		try {
 			//create dummy messages and actions

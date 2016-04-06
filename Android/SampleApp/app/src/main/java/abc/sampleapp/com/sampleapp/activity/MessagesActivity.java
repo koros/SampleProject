@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -92,7 +93,8 @@ public class MessagesActivity extends ActionBarActivity {
                 @Override
                 public void run() {
                     message = result;
-                    headerText.setText(result.getMessage().getText());
+                    String itemHeader = result.getMessage().getText();
+                    headerText.setText(Html.fromHtml(itemHeader));
                     adapter.notifyDataSetChanged();
                 }
             });
